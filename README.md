@@ -1,37 +1,40 @@
 # YAML_TESTING
 Testing out including a YAML file and having Github run tests/builds/etc.
+=======
 
-# /.github/workflows
+## /.github/workflows
 This is where Github looks for YAML files. The YAML file includes instructions for building/compiling/testing. This makes it so that when there is a merge/pull request/push Github will automatically run through a series of tests.
 
-# /bin
+## /bin
 TBD
 
-# /data
+## /data
 TBD
 
-# /docs
+## /docs
 TBD
 
-# /examples
+## /examples
 TBD
 
-# /lib
+## /lib
 TBD
 
-# /log
+## /log
 TBD
+
 Should be part of .gitignore so it won't be included in source code.
 
-# /obj
+## /obj
 TBD
 
-# /src
+## /src
 Source code.
 
-# /tests
+## /tests
 Files for testing the code to make sure future updates do not lose functionality or to help pinpoint errors.
 
-# /tmp
+## /tmp
 TBD
+
 Should be part of .gitignore so it won't be included in source code.
