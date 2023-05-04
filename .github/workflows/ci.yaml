@@ -6,36 +6,49 @@ name: CI
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: [ "main" ]
+    branches: [ "main" , "local"]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "main" , "local"]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
+  # Uses pylint to make sure code style conforms to standards
+  codestyle:
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout
         uses: actions/checkout@v3
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
-
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+      # Runs a single command to check the style of source code
+      - name: Setup
+        run: pip install .
       
-      # Runs unittest
+      # Pip install dependencies
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pylint
+
+      # Runs a single command to check the style of source code
+      - name: Pylint Source Code
+        run: pylint src/**/*.py
+
+      # Runs a single command to check the style of test code
+      - name: Pylint Test Code
+        run: pylint tests/**/*.py
+
+  # Tests source code to maintain compatibility
+  test:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+       
+      # Runs unittest using discover (Finds all test_*.py files and tests)
       - name: Run Tests
         run: python -m unittest discover

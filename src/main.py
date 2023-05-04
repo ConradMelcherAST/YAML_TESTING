@@ -1,15 +1,23 @@
-import conradmath
+"""
+Module YAML_TESTING.src
+Check code functionality without complete build
+"""
+
+from src.conradmath import Calculator
 
 def main():
+    """Main function for checking that code is functional"""
 
-    x = int(input("Input the first value: "))
+    calc = Calculator()
 
-    y = int(input("Input the second value: "))
+    first_number = int(input("Input the first value: "))
 
-    result_add = print("Result of adding: ", conradmath.cadd(x,y))
-    result_subtract = print("Result of subtracting: ", conradmath.csubtract(x,y))
-    result_multiply = print("Result of multiplying: ", conradmath.cmultiply(x,y))
-    result_divide = print("Result of dividing: ", conradmath.cdivide(x,y))
+    second_number = int(input("Input the second value: "))
+
+    print("Result of adding: ", calc.cadd(first_number, second_number))
+    print("Result of subtracting: ", calc.csubtract(first_number, second_number))
+    print("Result of multiplying: ", calc.cmultiply(first_number, second_number))
+    print("Result of dividing: ", calc.cdivide(first_number, second_number))
 
 if __name__ == "__main__":
     main()
