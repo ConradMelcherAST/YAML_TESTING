@@ -34,12 +34,14 @@ jobs:
       run: |
         pip install pyinstaller
         pyinstaller --onefile ./src/main.py
+    
+    - run: mkdir -p dist/
 
     - name: Upload Executable
       uses: actions/upload-artifact@v2
       with:
         name: executable
-        path: dist/  # This is where the executable is stored
+        path: dist/main.exe  # This is where the executable is stored
 
     # - name: Cleanup
     #   run: |
