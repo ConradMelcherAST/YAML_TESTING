@@ -33,7 +33,7 @@ jobs:
     - name: Create Executable
       run: |
         pip install pyinstaller
-        pyinstaller --onefile your_script.py
+        pyinstaller --onefile /src/main.py
 
     - name: Upload Executable
       uses: actions/upload-artifact@v2
