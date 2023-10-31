@@ -12,10 +12,10 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Set up Python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v3
       with:
         python-version: 3.11  # Replace with your desired Python version
 
@@ -38,10 +38,11 @@ jobs:
     - run: mkdir -p dist/
 
     - name: Upload Executable
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: executable
-        path: dist/main.exe  # This is where the executable is stored
+        path: dist/  # This is where the executable is stored
+        if-no-files-found: error # 'warn' or 'ignore' are also available, defaults to `warn`
 
     # - name: Cleanup
     #   run: |
