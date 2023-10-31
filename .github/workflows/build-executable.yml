@@ -41,7 +41,7 @@ jobs:
         name: executable
         path: dist/  # This is where the executable is stored
 
-    - name: Cleanup
-      run: |
-        deactivate  # Deactivate the virtual environment
-        rm -rf venv  # Remove the virtual environment
+    # - name: Cleanup
+    #   run: |
+    #     deactivate  # Deactivate the virtual environment
+    #     rm -rf venv  # Remove the virtual environment
