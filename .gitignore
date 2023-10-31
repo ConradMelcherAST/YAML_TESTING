@@ -2,3 +2,5 @@ logs/
 tmp/
 __pycache__/
 .vscode/
+build/
+dist/
