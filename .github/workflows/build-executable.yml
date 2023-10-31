@@ -19,6 +19,11 @@ jobs:
       with:
         python-version: 3.11  # Replace with your desired Python version
 
+    - name: Generate requirements.txt
+      run: |
+        pip install pipreqs
+        pipreqs --force ./  # This will generate or update requirements.txt
+
     - name: Install project dependencies
       run: |
         python -m venv venv
